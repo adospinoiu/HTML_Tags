@@ -6,12 +6,15 @@
 
     <body>
         <form>
+            <!-- The <fieldset> tag adds a border around the entire section with the <legend> as the title -->
             <fieldset>
                 <legend>Favorites</legend>
 
                 <div>
                     <label>Color List</label>
                 </div>
+
+                <!-- The <input> and <datalist> combination makes this a dropdown that is also 'type' searchable -->
                 <div>
                     <input list="color-list" type="text">
                     <datalist id="color-list">
@@ -48,6 +51,7 @@
                 <div>
                     <label>Color Picker</label>
                 </div>
+                <!-- The 'type'=color gives the user the option to select any color by seeing a color legend -->
                 <div>
                     <input type="color">
                 </div>
@@ -57,6 +61,7 @@
                 <div>
                     <label>Time Input</label>
                 </div>
+                <!-- The 'type'=time gives the user the option to select and enter time -->
                 <div>
                     <input type="time">
                 </div>
@@ -66,6 +71,7 @@
                 <div>
                     <label>File Upload</label>
                 </div>
+                <!-- The <progress> tag shows a progress bar so the user can get an idea of status -->
                 <div>
                     <progress></progress>Progress
                     <br>
@@ -81,7 +87,35 @@
                     <p>H<sub>2</sub>O</p>
                     <p>X<sup>2</sup> * y<sup>4</sup></p>
                 </div>
+
+                <br>
+
+                <div>
+                    <label>Large and Small Image based on screen size</label>
+                </div>
+                <div>
+                    <picture>
+                        <!-- This img displays when screen bigger than 700px-->
+                        <source srcset="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo-h1Xm0zZUjBVP21jo_PEw9DMUp3ML1rXsQ&usqp=CAU" media="(min-width:701px">
+                        
+                        <!-- This display up to a screen size of 700px -->
+                        <img src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/missionswebmars_sample_return_yKNCEnM.jpg" style="width: 700px">
+                    </picture>
+                </div>
             </fieldset>
         </form>
+
+        <!-- The template sections ONLY displays when the <script> is run -->
+        <template>
+            <h3>This section is for the TEMPLATE example</h3>
+            <small>Trying to change this text</small>
+        </template>
+
+        <script>
+            const template = document.querySelector('template')
+            const content = template.content.cloneNode(true)
+            // content.querySelector('small').innerText = "Changed"
+            document.body.append(content)
+        </script>
     </body>
 </html>
